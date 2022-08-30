@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name" translatable="false">AUTORUN</string>
+    <string name="add">Add</string>
+    <string name="service_unknown">Service state unknown</string>
+    <string name="click_to_refresh">Click to refresh</string>
+    <string name="accessibility_label" translatable="false">AUTORUN.INF</string>
+    <string name="accessibility_description">Enable AUTORUN.INF</string>
+    <string name="service_enabled">Service enabled</string>
+    <string name="service_disabled">Service disabled</string>
+    <string name="service_description">Tap to enable or disable service</string>
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="unknown">Unknown</string>
+    <string name="show_system_apps">Show system apps</string>
+    <string name="app_list">App list</string>
+    <string name="select_app">Select App</string>
+    <string name="delete">Delete</string>
+    <string name="change_theme">Change theme</string>
+    <string name="pink">Pink</string>
+    <string name="blue">Blue</string>
+</resources>

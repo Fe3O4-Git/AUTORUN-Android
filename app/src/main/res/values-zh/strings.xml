@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add">添加</string>
+    <string name="service_unknown">服务状态未知</string>
+    <string name="click_to_refresh">点击刷新</string>
+    <string name="accessibility_description">启用 AUTORUN.INF</string>
+    <string name="service_enabled">服务已启动</string>
+    <string name="service_disabled">服务已停止</string>
+    <string name="service_description">点击启用或停止服务</string>
+    <string name="about">关于</string>
+    <string name="version">版本</string>
+    <string name="unknown">未知</string>
+    <string name="show_system_apps">显示系统应用</string>
+    <string name="app_list">应用列表</string>
+    <string name="select_app">选择应用</string>
+    <string name="delete">删除</string>
+    <string name="change_theme">更改主题</string>
+    <string name="pink">粉色</string>
+    <string name="blue">蓝色</string>
+</resources>
