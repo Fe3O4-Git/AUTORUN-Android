@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
 
-import java.util.Set;
+import java.util.LinkedList;
 
 import lialh4.inf.autorun.utils.AppUtils;
 
@@ -21,8 +21,8 @@ public class AutorunInfService extends AccessibilityService {
 
     @Override
     public void onServiceConnected(){
-        AppUtils appUtils = new AppUtils(this,false);
-        Set<AppUtils.App> apps = appUtils.getApps();
+        AppUtils appUtils = new AppUtils(this, false);
+        LinkedList<AppUtils.App> apps = appUtils.getApps();
         for(AppUtils.App app: apps){
             Intent intent = getPackageManager().getLaunchIntentForPackage(app.packageName);
             if(intent != null) {

@@ -29,7 +29,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Set;
+import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import lialh4.inf.autorun.AutorunInfService;
@@ -127,7 +127,7 @@ public class MainActivity extends BaseActivity {
         int dp16 = UIUtils.dp2px(16);
         LinearLayout llApp = findViewById(R.id.ll_app);
         llApp.removeAllViews();
-        Set<AppUtils.App> apps = appUtils.getApps();
+        LinkedList<AppUtils.App> apps = appUtils.getApps();
         PackageManager pm = getPackageManager();
         ApplicationInfo info;
         for(AppUtils.App app:apps) {
