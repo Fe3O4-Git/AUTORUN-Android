@@ -40,12 +40,12 @@ public class AppUtils extends SPUtils{
         return apps;
     }
 
-    public void addApp(String packageName){
+    public boolean addApp(String packageName) {
         Set<String> jsonSet = getAppJsonSet();
-        for(String json:jsonSet) {
+        for (String json : jsonSet) {
             App app = gson.fromJson(json, App.class);
             if (packageName.equals(app.packageName))
-                return;
+                return false;
         }
         App app = new App();
         app.packageName = packageName;
@@ -53,6 +53,7 @@ public class AppUtils extends SPUtils{
         app.delay = 1;
         jsonSet.add(gson.toJson(app));
         updateAppJsonSet(jsonSet);
+        return true;
     }
 
     public void editApp(String packageName, float operations) {

@@ -1,4 +1,4 @@
-package lialh4.inf.autorun;
+package lialh4.inf.autorun.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import lialh4.inf.autorun.BuildConfig;
+import lialh4.inf.autorun.R;
 import lialh4.inf.autorun.utils.UIUtils;
 
 public class SelectAppActivity extends BaseActivity {

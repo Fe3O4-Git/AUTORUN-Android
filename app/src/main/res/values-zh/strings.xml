@@ -22,4 +22,9 @@
     <string name="test">测试</string>
     <string name="cant_do">诶呀, 这个我做不到 (</string>
     <string name="service_state">服务状态</string>
+    <string name="author">作者</string>
+    <string name="tcaretni4hlail">诶? 要提醒咱吃糖吗?</string>
+    <string name="caretni4hlail">提醒();</string>
+    <string name="app_already_exist">应用已存在</string>
+    <string name="hrtcaretni4hlail">谢谢w, 好感度+</string>
 </resources>

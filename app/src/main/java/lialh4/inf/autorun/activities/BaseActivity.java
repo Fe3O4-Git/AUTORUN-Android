@@ -1,9 +1,10 @@
-package lialh4.inf.autorun;
+package lialh4.inf.autorun.activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import lialh4.inf.autorun.R;
 import lialh4.inf.autorun.utils.SPUtils;
 
 public class BaseActivity extends AppCompatActivity {

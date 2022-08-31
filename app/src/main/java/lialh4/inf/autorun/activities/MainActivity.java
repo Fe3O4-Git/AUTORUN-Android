@@ -1,4 +1,4 @@
-package lialh4.inf.autorun;
+package lialh4.inf.autorun.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -20,23 +20,29 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import lialh4.inf.autorun.AutorunInfService;
+import lialh4.inf.autorun.R;
 import lialh4.inf.autorun.utils.AppUtils;
 import lialh4.inf.autorun.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
     private static final int SELECT_APP_REQUEST_CODE = 1;
     private AppUtils appUtils;
+    private ConstraintLayout rootCl;
     private CardView card;
+    private FloatingActionButton addBtn;
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
@@ -50,7 +56,7 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.test:
-                Toast.makeText(this, getText(R.string.cant_do), Toast.LENGTH_LONG).show();
+                Snackbar.make(rootCl, getText(R.string.cant_do), Snackbar.LENGTH_LONG).setAnchorView(addBtn).show();
                 return true;
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
@@ -71,10 +77,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        appUtils = new AppUtils(this,true);
+        appUtils = new AppUtils(this, true);
+        rootCl = findViewById(R.id.main_root_cl);
         card = findViewById(R.id.service_state_card);
+        addBtn = findViewById(R.id.add_button);
         card.setOnClickListener(view -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
-        findViewById(R.id.add_button).setOnClickListener(view -> startActivityForResult(new Intent(this, SelectAppActivity.class), SELECT_APP_REQUEST_CODE));
+        addBtn.setOnClickListener(view -> startActivityForResult(new Intent(this, SelectAppActivity.class), SELECT_APP_REQUEST_CODE));
     }
 
     @Override
@@ -88,7 +96,8 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == SELECT_APP_REQUEST_CODE && resultCode == RESULT_OK) {
-            appUtils.addApp(intent.getStringExtra("pkg"));
+            if (!appUtils.addApp(intent.getStringExtra("pkg")))
+                Snackbar.make(rootCl, R.string.app_already_exist, Snackbar.LENGTH_SHORT).setAnchorView(addBtn).show();
         }
     }
 
