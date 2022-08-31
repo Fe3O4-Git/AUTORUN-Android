@@ -141,7 +141,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                         String text = editText.getText().toString();
-                        if(text.endsWith("."))
+                        if(text.isEmpty()||text.endsWith("."))
                             return;
                         float delay = Float.parseFloat(text);
                         appUtils.editApp(app.packageName,delay);
