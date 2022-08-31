@@ -33,7 +33,7 @@ jobs:
         path: app/build/outputs/apk/debug
         if-no-files-found: error
     
-    - name: Android Sign
+    - name: Sign release apk
       uses: Tlaster/android-sign@v1.2.2
       with:
         releaseDirectory: app/build/outputs/apk/release
@@ -41,12 +41,12 @@ jobs:
         alias: ${{ secrets.KEY_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_PASS }}
         keyPassword: ${{ secrets.KEY_PASS }}
-        buildDirectory: build/outputs/apk/release
-        output: app/build/outputs/apk/release
+        buildDirectory: build/
+        output: build/signed
     
     - name: Upload release apk
       uses: actions/upload-artifact@v3.1.0
       with:
         name: app-release
-        path: app/build/outputs/apk/release
+        path: build/signed
         if-no-files-found: error
