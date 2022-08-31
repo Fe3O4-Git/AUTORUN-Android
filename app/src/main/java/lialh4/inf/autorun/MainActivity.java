@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -195,6 +196,9 @@ public class MainActivity extends BaseActivity {
                 ll.addView(llH);
                 CardView card = new CardView(this);
                 card.setRadius(dp16);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                lp.setMargins(dp16,dp16,dp16,dp16);
+                card.setLayoutParams(lp);
                 card.addView(ll);
                 llApp.addView(card);
             } catch (PackageManager.NameNotFoundException e) {
