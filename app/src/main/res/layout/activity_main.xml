@@ -31,7 +31,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/service_description"
+                    android:contentDescription="@string/service_state"
                     app:srcCompat="@drawable/ic_no" />
 
                 <LinearLayout
