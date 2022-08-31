@@ -4,7 +4,7 @@
     <string name="accessibility_description">启用 AUTORUN.INF</string>
     <string name="service_enabled">服务已启动</string>
     <string name="service_disabled">服务已停止</string>
-    <string name="service_description">点击启用或停止服务</string>
+    <string name="service_description">点击启动或停止服务</string>
     <string name="about">关于</string>
     <string name="version">版本</string>
     <string name="unknown">未知</string>
