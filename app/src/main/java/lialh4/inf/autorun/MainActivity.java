@@ -156,6 +156,7 @@ public class MainActivity extends BaseActivity {
                 suffix.setTextColor(getResources().getColor(R.color.black));
                 LinearLayout llS = new LinearLayout(this);
                 llS.setPadding(0,0,dp16,0);
+                llS.setGravity(Gravity.CENTER_VERTICAL);
                 if(!app.returnHome)
                     llS.setVisibility(View.GONE);
                 llS.addView(prefix);
@@ -184,7 +185,7 @@ public class MainActivity extends BaseActivity {
                 });
                 LinearLayout llH = new LinearLayout(this);
                 llH.setPadding(dp16,0,dp16,dp16);
-                llH.setGravity(Gravity.END);
+                llH.setGravity(Gravity.END|Gravity.CENTER_VERTICAL);
                 llH.addView(llS);
                 llH.addView(sw);
                 llH.addView(delBtn);
