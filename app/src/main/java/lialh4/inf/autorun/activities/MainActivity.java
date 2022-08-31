@@ -15,7 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,9 +25,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -165,27 +165,28 @@ public class MainActivity extends BaseActivity {
                 suffix.setText(R.string.delay_hint_suffix);
                 suffix.setTextColor(getResources().getColor(R.color.black));
                 LinearLayout llS = new LinearLayout(this);
-                llS.setPadding(0,0,dp16,0);
+                llS.setPadding(0, 0, dp16, 0);
                 llS.setGravity(Gravity.CENTER_VERTICAL);
-                if(!app.returnHome)
+                if (!app.returnHome)
                     llS.setVisibility(View.GONE);
                 llS.addView(prefix);
                 llS.addView(editText);
                 llS.addView(suffix);
-                SwitchMaterial sw = new SwitchMaterial(this);
-                sw.setText(R.string.return_home);
-                sw.setChecked(app.returnHome);
-                sw.setOnClickListener(view -> {
-                    if(sw.isChecked()) {
+                CheckBox checkBox = new CheckBox(this);
+                checkBox.setText(R.string.return_home);
+                checkBox.setChecked(app.returnHome);
+                checkBox.setPadding(0, 0, dp16, 0);
+                checkBox.setOnClickListener(view -> {
+                    if (checkBox.isChecked()) {
                         operation.set(AppUtils.SET_RETURN_HOME);
                         llS.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         operation.set(AppUtils.UNSET_RETURN_HOME);
                         llS.setVisibility(View.GONE);
                     }
                     appUtils.editApp(app.packageName, operation.get());
                 });
-                Button delBtn = new Button(this);
+                MaterialButton delBtn = new MaterialButton(this);
                 delBtn.setText(R.string.delete);
                 delBtn.setAllCaps(false);
                 delBtn.setOnClickListener(view -> {
@@ -197,7 +198,7 @@ public class MainActivity extends BaseActivity {
                 llH.setPadding(dp16,0,dp16,dp16);
                 llH.setGravity(Gravity.END|Gravity.CENTER_VERTICAL);
                 llH.addView(llS);
-                llH.addView(sw);
+                llH.addView(checkBox);
                 llH.addView(delBtn);
                 LinearLayout ll = new LinearLayout(this);
                 ll.setOrientation(LinearLayout.VERTICAL);
