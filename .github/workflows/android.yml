@@ -34,7 +34,8 @@ jobs:
         if-no-files-found: error
     
     - name: Sign release apk
-      uses: Tlaster/android-sign@v1.2.2
+      uses: r0adkll/sign-android-release@v1
+      id: sign_app
       with:
         releaseDirectory: app/build/outputs/apk/release
         signingKeyBase64: ${{ secrets.KEY_BASE64 }}
@@ -46,5 +47,5 @@ jobs:
       uses: actions/upload-artifact@v3.1.0
       with:
         name: app-release
-        path: build/signed
+        path: ${{steps.sign_app.outputs.signedReleaseFile}}
         if-no-files-found: error
