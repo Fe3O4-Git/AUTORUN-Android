@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="add">添加</string>
-    <string name="service_unknown">服务状态未知</string>
-    <string name="click_to_refresh">点击刷新</string>
     <string name="accessibility_description">启用 AUTORUN.INF</string>
     <string name="service_enabled">服务已启动</string>
     <string name="service_disabled">服务已停止</string>
@@ -17,4 +15,11 @@
     <string name="change_theme">更改主题</string>
     <string name="pink">粉色</string>
     <string name="blue">蓝色</string>
+    <string name="return_home">返回桌面</string>
+    <string name="delay_hint_prefix">延迟</string>
+    <string name="delay_hint_suffix">(秒) 后</string>
+    <string name="cant_start">无法启动</string>
+    <string name="test">测试</string>
+    <string name="cant_do">诶呀, 这个我做不到 (</string>
+    <string name="service_state">服务状态</string>
 </resources>

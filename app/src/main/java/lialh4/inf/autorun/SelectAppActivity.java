@@ -1,7 +1,5 @@
 package lialh4.inf.autorun;
 
-import androidx.annotation.NonNull;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -15,11 +13,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import lialh4.inf.autorun.utils.AppUtils;
+import lialh4.inf.autorun.utils.UIUtils;
 
 public class SelectAppActivity extends BaseActivity {
 
@@ -44,14 +44,12 @@ public class SelectAppActivity extends BaseActivity {
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.show_system_apps_switch:
-                item.setChecked(!item.isChecked());
-                refreshAppList();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.show_system_apps_switch) {
+            item.setChecked(!item.isChecked());
+            refreshAppList();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -80,7 +78,7 @@ public class SelectAppActivity extends BaseActivity {
 
     private void buildAppList(Set<AppInfo> appInfoSet){
         for(AppInfo appInfo: appInfoSet) {
-            LinearLayout llH = AppUtils.genAppInfoLL(this, appInfo.icon, appInfo.name, appInfo.packageName);
+            LinearLayout llH = UIUtils.genAppInfoLL(this, appInfo.icon, appInfo.name, appInfo.packageName);
             llH.setOnClickListener(view -> {
                 Intent intent = new Intent();
                 intent.putExtra("pkg", appInfo.packageName);

@@ -31,7 +31,8 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_unknown" />
+                    android:contentDescription="@string/service_description"
+                    app:srcCompat="@drawable/ic_no" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                         android:id="@+id/service_state_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/service_unknown"
+                        android:text="@string/service_disabled"
                         android:textColor="@color/white"
                         android:textSize="24dp" />
 
@@ -54,7 +55,7 @@
                         android:id="@+id/service_state_text_des"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/click_to_refresh"
+                        android:text="@string/service_description"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
                 </LinearLayout>

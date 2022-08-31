@@ -28,8 +28,21 @@ public class AutorunInfService extends AccessibilityService {
             if(intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                if(app.returnHome){
+                    int time = Math.round(1000 * app.delay);
+                    if(time!=0)
+                        try {
+                            Thread.sleep(time);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    Intent intentHome = new Intent(Intent.ACTION_MAIN);
+                    intentHome.addCategory(Intent.CATEGORY_HOME);
+                    intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intentHome);
+                }
             }else
-                Toast.makeText(this, "aaabbb", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.cant_start)+app.packageName, Toast.LENGTH_SHORT).show();
         }
     }
 }
