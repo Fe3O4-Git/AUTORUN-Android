@@ -45,7 +45,7 @@ public class AutorunInfService extends AccessibilityService {
                         startActivity(intentHome);
                     }
                 } else
-                    Toast.makeText(this, getText(R.string.cant_start) + app.packageName, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getText(R.string.cant_start) + " " + app.packageName, Toast.LENGTH_SHORT).show();
             }
         }
     }
