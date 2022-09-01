@@ -24,6 +24,7 @@ jobs:
     - name: Prepare signing configs
       run: |
         echo ${{ secrets.KEY_BASE64 }} | base64 -d > key.jks
+        echo -e '\nkeyFile=../key.jks' >> gradle.properties
         echo -e '\nkeyName=${{ secrets.KEY_ALIAS }}' >> gradle.properties
         echo -e '\nkeyPass=${{ secrets.KEY_PASS }}' >> gradle.properties
 

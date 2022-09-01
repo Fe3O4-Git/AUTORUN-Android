@@ -6,11 +6,7 @@ android {
 
     signingConfigs {
         release {
-            def localKey = file("/mnt/hdd/Projects/Android/LiAlH4.jks")
-            if(localKey.exists())
-                storeFile localKey
-            else
-                storeFile file("../key.jks")
+            storeFile file(keyFile)
             storePassword keyPass
             keyAlias keyName
             keyPassword keyPass
@@ -44,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'com.google.code.gson:gson:2.9.1'
