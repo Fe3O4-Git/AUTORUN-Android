@@ -3,6 +3,19 @@ plugins {
 }
 
 android {
+
+    signingConfigs {
+        release {
+            def localKey = file("/mnt/hdd/Projects/Android/LiAlH4.jks")
+            if(localKey.exists())
+                storeFile localKey
+            else
+                storeFile file("key.jks")
+            storePassword keyPass
+            keyAlias keyName
+            keyPassword keyPass
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -20,6 +33,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
