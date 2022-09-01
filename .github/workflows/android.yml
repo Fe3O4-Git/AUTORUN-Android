@@ -24,8 +24,8 @@ jobs:
     - name: Prepare signing configs
       run: |
         echo ${{ secrets.KEY_BASE64 }} | base64 -d > key.jks
-        echo keyName=${{ secrets.KEY_ALIAS }} >> gradle.properties
-        echo keyPass=${{ secrets.KEY_PASS }} >> gradle.properties
+        echo keyName="${{ secrets.KEY_ALIAS }}" >> gradle.properties
+        echo keyPass="${{ secrets.KEY_PASS }}" >> gradle.properties
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
