@@ -10,7 +10,7 @@ android {
             if(localKey.exists())
                 storeFile localKey
             else
-                storeFile file("key.jks")
+                storeFile file("../key.jks")
             storePassword keyPass
             keyAlias keyName
             keyPassword keyPass
