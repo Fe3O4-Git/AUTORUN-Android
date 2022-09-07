@@ -1,4 +1,4 @@
-# AUTORUN-Android
+# Android-Autorun
 
 Android app auto-starter using accessibility service
 

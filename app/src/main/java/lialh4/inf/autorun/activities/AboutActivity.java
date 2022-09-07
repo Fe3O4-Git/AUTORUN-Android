@@ -39,7 +39,7 @@ public class AboutActivity extends BaseActivity {
                         .setAction(R.string.caretni4hlail, v2 -> Snackbar.make(rootCl, getString(R.string.hrtcaretni4hlail) + String.format("%.2f", 1 + Math.random() * 2), Snackbar.LENGTH_LONG).show())
                         .show();
         });
-        findViewById(R.id.github_card).setOnClickListener(v -> openUrl("http://github.com/Fe3O4-Git/AUTORUN-Android"));
+        findViewById(R.id.github_card).setOnClickListener(v -> openUrl("http://github.com/Fe3O4-Git/Android-Autorun"));
     }
 
     private void openUrl(String url) {
